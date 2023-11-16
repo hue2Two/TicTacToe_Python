@@ -83,8 +83,15 @@ def switchPlayer(): #no args passed since we won't modify board
     else:
         currentPlayer = "X"
 
+#master function
+def checkWin():
+    if checkDiag(board) or checkHorizontal(board) or checkRow(board):
+        print(f"The winner is {winner}")
 
 #game loop
 while gameRunning:
     printBoard(board) #print the game board
     playerInput(board) #check the player input
+    checkWin()
+    checkTie(board)
+    switchPlayer()
