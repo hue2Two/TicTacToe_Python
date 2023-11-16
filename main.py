@@ -6,6 +6,8 @@
 #switch the player
 #check for win or tie again
 
+import random
+
 #global vars
 board = [
     "_", "_", "_",
@@ -88,6 +90,15 @@ def checkWin():
     if checkDiag(board) or checkHorizontal(board) or checkRow(board):
         print(f"The winner is {winner}")
 
+#computer makes moves
+def computer(board):
+    while currentPlayer == "0":
+        position = random.randint(0, 8)
+        if board[position] == "_":
+            board[position] = "0"
+            switchPlayer()
+
+
 #game loop
 while gameRunning:
     printBoard(board) #print the game board
@@ -95,3 +106,6 @@ while gameRunning:
     checkWin()
     checkTie(board)
     switchPlayer()
+    computer(board)
+    checkWin()
+    checkTie(board)
