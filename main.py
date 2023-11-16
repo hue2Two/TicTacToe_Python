@@ -76,6 +76,13 @@ def checkTie(board):
         gameRunning = False
 
 #switch the player
+def switchPlayer(): #no args passed since we won't modify board
+    global currentPlayer
+    if currentPlayer == "X":
+        currentPlayer = "0"
+    else:
+        currentPlayer = "X"
+
 
 #game loop
 while gameRunning:
